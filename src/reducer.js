@@ -1,5 +1,3 @@
-// define all app level state and define actions to make the changes to the state
-
 export const initialState = {
   basket: [],
 };
@@ -15,7 +13,7 @@ const reducer = (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
-      
+
     case "REMOVE_FROM_BASKET":
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.id
@@ -25,11 +23,11 @@ const reducer = (state, action) => {
         newBasket.splice(index, 1);
       } else console.warn(`cant remove prodcut`);
       return {
-           ...state,
-           basket:newBasket
+        ...state,
+        basket: newBasket,
       };
-      default:
-          return state;
+    default:
+      return state;
   }
 };
 export default reducer;
